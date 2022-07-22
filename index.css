@@ -14,6 +14,8 @@ body{
     height: 100%;
 }
 
-/* #fish{
-    margin: 150px;
-} */
+#fish{
+    position: absolute;
+    top: 50%;
+    
+}
