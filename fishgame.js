@@ -41,3 +41,14 @@ document.addEventListener('mousemove', function(e){
 
 });
 
+function Image(){
+    const img= [
+      "/chips-removebg-preview.png",
+      "/fish.png",
+    ];
+
+    const bg = img[Math.floor(Math.random() * img.length)];
+    document.getElementById("chips").innerHTML = `url(${bg})`;
+  
+}
+
