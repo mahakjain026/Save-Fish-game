@@ -6,13 +6,35 @@ body{
 
 #main{
     height: 100vh;
-    background: linear-gradient(to top , #040529 , #59C6D4);
+    background: linear-gradient(to top , #040529 , #77cbd6);
 }
 
 #particles{
     width: 100%;
     height: 100%;
 }
+
+#fish{
+    position: absolute;
+    top: 50%;
+    
+}
+
+#chips{
+    animation-name: sweep;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes sweep {
+	from {
+    	transform: translateX(600%);
+    }
+    to {
+ 		transform: translateX(-10%);   
+    }
+} 
+
 #stone{
 
     position:absolute;
@@ -24,32 +46,36 @@ body{
     }
     #can{
   
-      position:absolute;
+      /* position:absolute;
       bottom: 15px;
     left:10px;
       bottom:20px;
       opacity: 50%;
         width: 200px;
-        height: 200px;
+        height: 200px; */
+        animation-name: sweep;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
       }
+
       #bottle{
 
-        position:absolute;
+        /* position:absolute;
         top: 150px;
         right:20px;
       opacity: 50%;
           width: 200px;
-          height: 200px;
+          height: 200px; */
+          animation-name: sweep;
+          animation-duration: 2s;
+          animation-iteration-count: infinite;
         }
-        #fish{
+        /* #fish{
             position:absolute;
             width: 20%;
             height: 20%;
             /* border:2px solid #000 ; */
-            transition: 0.1s;
+            /* transition: 0.1s; */
             /* box-sizing: border-box; */
-            transform :translate(-50%,-50%) ;
-        }
-
-
-
+            /* transform :translate(-50%,-50%) ;
+        } */ 
