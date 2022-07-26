@@ -5,7 +5,8 @@ body{
 }
 
 #main{
-    height: 100vh;
+    /* height: 100%;
+    width: 100%;  */
     background: linear-gradient(to top , #040529 , #77cbd6);
 }
 
@@ -20,18 +21,23 @@ body{
     
 }
 
-#chips{
+#particle{
+    position: absolute;
+}
+
+#particle{
     animation-name: sweep;
   animation-duration: 2s;
+  animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
 
-@keyframes sweep {
+@keyframes sweep{
 	from {
-    	transform: translateX(600%);
+    left: 1000px;
     }
     to {
- 		transform: translateX(-10%);   
+ 		left: 0px;  
     }
 } 
 
@@ -78,4 +84,4 @@ body{
             /* transition: 0.1s; */
             /* box-sizing: border-box; */
             /* transform :translate(-50%,-50%) ;
-        } */ 
+        } */ / 
