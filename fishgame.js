@@ -1,54 +1,37 @@
-// let fish=document.querySelector('.fish');
-// let moveby=10;
+function Image() {
+  const img = [
+    "chips-removebg-preview.png",
+    "bottle-removebg-preview.png",
+    "bottle2-removebg-preview.png",
+    "can_bottle-removebg-preview.png",
+  ];
+
+  const bg = img[Math.floor(Math.random() * img.length)];
+  const image = document.createElement("img");
+  image.setAttribute('src', `${bg}`);
+  image.setAttribute('height', 60);
+  image.setAttribute('id','garbage')
+
+  const particles = document.getElementById("particle");
+  particles.appendChild(image);
 
 
 
-// window.addEventListener('load',() =>
-// {
-//     circle.style.position='absolute';
-//     circle.style.left=0;
-//     circle.style.top=0;
+const pos=Math.floor(Math.random() * (450) ) + 70;
 
-
-// });
-// window.addEventListener('keyup',(e) =>
-// {
-//     switch(e.key){
-//         case 'ArrowLeft':
-//       fish.style.left=parseInt( fish.style.left)-moveby + 'px';
-//       break;
-//       case 'ArrowRight':
-//     fish.style.left=parseInt( fish.style.left)+ moveby + 'px';
-//     break;
-//      case 'ArrowUp':
-//   fish.style.top=parseInt( fish.style.left)-moveby + 'px';
-//   break;
-//     case 'ArrowDown':
-//      fish.style.top=parseInt( fish.style.left)+moveby + 'px';
-//      break;
-//     }
-// });
+console.log(pos);
+ document.getElementById("garbage").style.marginTop = pos+"px";
+}
+Image();
+getParticles();
 
 var fishmouse = document.getElementById('fish');
 document.addEventListener('mousemove', function(e){
   var x= e.clientX;
   var y= e.clientY;
   fishmouse.style.left=x+ 'px';
-
-  fishmouse.style.top=y+'px';
-
-
+  
+fishmouse.style.top=y+'px';
 
 });
-
-function Image(){
-    const img= [
-      "/chips-removebg-preview.png",
-      "/fish.png",
-    ];
-
-    const bg = img[Math.floor(Math.random() * img.length)];
-    document.getElementById("chips").innerHTML = `url(${bg})`;
-  
-}
 
