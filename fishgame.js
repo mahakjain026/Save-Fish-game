@@ -1,6 +1,9 @@
 var fishmouse = document.getElementById("fish");
-// const element = document.getElementById("fish");
-// const rect = element.getBoundingClientRect();
+let element;
+let rect; 
+let garbages; 
+let cord ;
+let timer;
 
 document.addEventListener("mousemove",movement); 
 
@@ -14,83 +17,103 @@ function movement(e) {
   fishmouse.style.left = x + "px";
   fishmouse.style.top = y + "px";
 
-  const element = document.getElementById("fish");
-  const rect = element.getBoundingClientRect();
+  //  element = document.getElementById("fish");
+  // rect = element.getBoundingClientRect();
 
-  console.log(
-    "fish ----- " +
-      "right: " +
-      rect.right.toFixed() +
-      ", Top: " +
-      rect.top.toFixed() +
-      ", bottom: " +
-      rect.bottom.toFixed() +
-      ", Left: " +
-      rect.left.toFixed()
-  );
+  // console.log(
+  //   "fish ----- " +
+  //     "right: " +
+  //     rect.right.toFixed() +
+  //     ", Top: " +
+  //     rect.top.toFixed() +
+  //     ", bottom: " +
+  //     rect.bottom.toFixed() +
+  //     ", Left: " +
+  //     rect.left.toFixed()
+  // );
+  // game();
 };
 
 
 const particles = document.getElementById("particle");
 
 function randomImage() {
-  const img = [
+  
+  particles.innerHTML ='';
+    const img = [
     "chips-removebg-preview.png",
     "bottle-removebg-preview.png",
     "bottle2-removebg-preview.png",
     "can_bottle-removebg-preview.png",
   ];
-
-  const bg = img[Math.floor(Math.random() * img.length)];
-  const image = document.createElement("img");
-  image.setAttribute("src", `${bg}`);
-  image.setAttribute("height", 100);
-  image.setAttribute("id", "garbage");
-  particles.appendChild(image);
+  let bg = img[Math.floor(Math.random() * img.length)];
+  let i = document.createElement("img");
+  i.setAttribute("src", `${bg}`);
+  i.setAttribute("height", 100);
+  i.setAttribute("id", "garbage");
+  particles.appendChild(i);
+ 
 }
-// console.log("rect -----"+rect);
 
- randomImage();
-function getImage() {
+
+function getImagePosition() {
   const pos = Math.floor(Math.random() * 450) + 70;
 
   document.getElementById("garbage").style.marginTop = pos + "px";
-  setInterval(getcorrdinate, 100);
-
-}
-
-getImage();
-
-
-  function getcorrdinate(){
-  const garbages = document.getElementById("garbage");
-  let cord = garbages.getBoundingClientRect();
   
-    
-      " garbage -----" +
-        "right: " +
-        cord.right.toFixed() +
-        ", Top: " +
-        cord.top.toFixed() +
-        ", bottom: " +
-        cord.bottom.toFixed() +
-        ", Left: " +
-        cord.left.toFixed();
+  
 }
 
 
-function isCollide(movement,getcorrdinate){
-  return !((movement.bottom < getcorrdinate.top ) || (movement.top>getcorrdinate.bottom))
+
+
+//   function getcorrdinate(){
+  //   //  garbages = document.getElementById("garbage");
+  //   //  cord = garbages.getBoundingClientRect();
+  
+  
+  //        console.log(" garbage -----" +
+//         "right: " +
+//         cord.right.toFixed() +
+//         ", Top: " +
+//         cord.top.toFixed() +
+//         ", bottom: " +
+//         cord.bottom.toFixed() +
+//         ", Left: " +
+//         cord.left.toFixed());
+// }
+
+
+function isCollide(){
+  element = document.getElementById("fish");
+  rect = element.getBoundingClientRect();
+
+  garbages = document.getElementById("garbage");
+  if(!garbages){
+    return false;
+  }
+  cord = garbages.getBoundingClientRect();
+
+  return !((rect.bottom < cord.top ) || (rect.top>cord.bottom) || (rect.right < cord.left ) || (rect.left > cord.rightx ))
 }
 
 function game(){
   if(isCollide()){
-    console.log("hsxsjsnj");
+    console.log("true");
   }
   else{
-    console.log("....")
+    console.log("false")
   }
+}
+
+function startGame(){
+
+  setInterval(game,300);
+
+  setInterval(randomImage,2000);
+
+  setInterval(getImagePosition,2000);
 
 }
 
-game();
+startGame();
