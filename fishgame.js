@@ -8,8 +8,10 @@ let timer;
 document.addEventListener("mousemove",movement); 
 
 function movement(e) {
+  
   var x = e.clientX;
   var y = e.clientY;
+
   if (y < 80 || y > 430 || x < 156 || x > 750) {
     return;
   }
@@ -17,23 +19,7 @@ function movement(e) {
   fishmouse.style.left = x + "px";
   fishmouse.style.top = y + "px";
 
-  //  element = document.getElementById("fish");
-  // rect = element.getBoundingClientRect();
-
-  // console.log(
-  //   "fish ----- " +
-  //     "right: " +
-  //     rect.right.toFixed() +
-  //     ", Top: " +
-  //     rect.top.toFixed() +
-  //     ", bottom: " +
-  //     rect.bottom.toFixed() +
-  //     ", Left: " +
-  //     rect.left.toFixed()
-  // );
-  // game();
 };
-
 
 const particles = document.getElementById("particle");
 
@@ -46,45 +32,26 @@ function randomImage() {
     "bottle2-removebg-preview.png",
     "can_bottle-removebg-preview.png",
   ];
+
   let bg = img[Math.floor(Math.random() * img.length)];
   let i = document.createElement("img");
   i.setAttribute("src", `${bg}`);
-  i.setAttribute("height", 100);
+  i.setAttribute("height", "70");
   i.setAttribute("id", "garbage");
   particles.appendChild(i);
  
 }
 
-
 function getImagePosition() {
-  const pos = Math.floor(Math.random() * 450) + 70;
 
+  const pos = Math.floor(Math.random() * 360) + 200;
+  console.log("pos",pos);
   document.getElementById("garbage").style.marginTop = pos + "px";
-  
   
 }
 
-
-
-
-//   function getcorrdinate(){
-  //   //  garbages = document.getElementById("garbage");
-  //   //  cord = garbages.getBoundingClientRect();
-  
-  
-  //        console.log(" garbage -----" +
-//         "right: " +
-//         cord.right.toFixed() +
-//         ", Top: " +
-//         cord.top.toFixed() +
-//         ", bottom: " +
-//         cord.bottom.toFixed() +
-//         ", Left: " +
-//         cord.left.toFixed());
-// }
-
-
 function isCollide(){
+  
   element = document.getElementById("fish");
   rect = element.getBoundingClientRect();
 
@@ -94,26 +61,33 @@ function isCollide(){
   }
   cord = garbages.getBoundingClientRect();
 
-  return !((rect.bottom < cord.top ) || (rect.top>cord.bottom) || (rect.right < cord.left ) || (rect.left > cord.rightx ))
+  return !((rect.bottom < cord.top ) || (rect.top>cord.bottom) || (rect.right < cord.left ) || (rect.left > cord.right ))
 }
 
 function game(){
   if(isCollide()){
-    console.log("true");
+    console.log("Game over");
+    // alert("game over");
   }
-  else{
-    console.log("false")
-  }
+  // else{
+  //   score=score+5;
+  //   console.log("score = ",score);
+    
+  // }
 }
 
 function startGame(){
-
+  let score=0;
+  setInterval(function(){
+    score=score+5;
+    console.log("score = ",score);
+  },2700);
   setInterval(game,300);
 
   setInterval(randomImage,2000);
-
+  
   setInterval(getImagePosition,2000);
-
+  
 }
 
 startGame();
