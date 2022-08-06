@@ -1,0 +1,219 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+body{
+    display: flex;
+    /* background: #000; */
+    /* background: linear-gradient(to top , #040529 , #59C6D4); */
+    background: url("https://i.pinimg.com/originals/4a/6d/59/4a6d59a24e9f463e48c618b166c19f6b.png");
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    opacity:0.7 ;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+#main{
+    height: 100vh;
+    /* background: #000; */
+    /* background: linear-gradient(to top , #040529 , #59C6D4); */
+}
+/* .fish-anim{
+  background: url("/fishanim2.png"); 
+  height: 420px;
+  width: 260px;
+  position: relative;
+  animation-name: fishanim;
+  animation-duration: 4s;
+} */
+/* @keyframes fishanim {
+  0%   {background-color:rgb(8, 0, 255); left:0px; top:0px;}
+} */
+.button {
+  margin-top: 470px;
+align-items: center;
+appearance: none;
+background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+border: 0;
+border-radius: 6px;
+box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+box-sizing: border-box;
+color: #fff;
+cursor: pointer;
+display: inline-flex;
+font-family: "JetBrains Mono",monospace;
+height: 48px;
+justify-content: center;
+line-height: 1;
+list-style: none;
+overflow: hidden;
+padding-left: 16px;
+padding-right: 16px;
+position: relative;
+text-align: left;
+text-decoration: none;
+transition: box-shadow .15s,transform .15s;
+user-select: none;
+-webkit-user-select: none;
+touch-action: manipulation;
+white-space: nowrap;
+will-change: box-shadow,transform;
+font-size: 18px;
+}
+
+.button:focus {
+box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+}
+
+.button:hover {
+box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+transform: translateY(-2px);
+}
+
+.start:active {
+box-shadow: #3c4fe0 0 3px 7px inset;
+transform: translateY(2px);
+}
+
+.hide{
+    display: none;
+}
+/* .fishImg{
+    background: lightblue;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+} */
+
+
+/* LOGO SAIL THE SAVIOUR */
+.content h3 {
+    margin-top: 20%;
+    padding: 10%;
+    color: rgba(162, 39, 39, 0.272);
+    font-size: 8em;
+    position: absolute;
+    transform: translate(-50%, -50%);
+  }
+  
+  .content h3:nth-child(1) {
+    color: transparent;
+    -webkit-text-stroke: 2px #ede0e0;
+  }
+  
+  .content h3:nth-child(2) {
+    color: #000000;
+    animation: animate 4s ease-in-out infinite;
+  }
+  
+  @keyframes animate {
+    0%,
+    100% {
+      clip-path: polygon(
+        0% 45%,
+        16% 44%,
+        33% 50%,
+        54% 60%,
+        70% 61%,
+        84% 59%,
+        100% 52%,
+        100% 100%,
+        0% 100%
+      );
+    }
+  
+    50% {
+      clip-path: polygon(
+        0% 60%,
+        15% 65%,
+        34% 66%,
+        51% 62%,
+        67% 50%,
+        84% 45%,
+        100% 46%,
+        100% 100%,
+        0% 100%
+      );
+    }
+  }
+
+
+
+
+  #particles{
+    width: 100%;
+    height: 100%;
+  }
+  
+  #particle{
+    position: absolute;
+    animation-name: sweep;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+  
+  #stone{
+  
+      position:absolute;
+      bottom: 0px;
+      right:0px;
+    opacity: 50%;
+        width: 200px;
+        height: 200px;
+      }
+      #can{
+    
+        /* position:absolute;
+        bottom: 15px;
+      left:10px;
+        bottom:20px;
+       
+          width: 200px;
+          height: 200px; */
+          opacity: 50%;
+          animation-name: sweep;
+          animation-duration: 2s;
+          animation-iteration-count: infinite;
+        }
+        #bottle{
+  
+          /* position:absolute;
+          top: 150px;
+          right:20px;
+       
+            width: 200px;
+            height: 200px; */
+            opacity: 50%;
+            animation-name: sweep;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+          }
+          #fish{
+              position:absolute;
+              display: block;
+              margin: 0 auto;
+              top:50%;
+             
+              /* border:2px solid #000 ; */
+              transition: 0.1s;
+              /* box-sizing: border-box; */
+              transform :translate(-50%,-50%) ;
+          }
+          #chips{
+            animation-name: sweep;
+          animation-duration: 2s;
+          animation-iteration-count: infinite;
+        }
+        
+        @keyframes sweep {
+          from {
+            left: 1000px;
+            }
+            to {
+             left: 0px;  
+            }
+        } 
