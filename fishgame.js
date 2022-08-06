@@ -6,7 +6,12 @@ let cord;
 let timer;
 
 document.addEventListener("mousemove", movement);
-
+function getScoreFromLS(){
+  return localStorage.getItem('scoreObj')
+}
+function setScoreFromLS(scorePara){
+  localStorage.setItem('scoreObj', scorePara)
+}
 function movement(e) {
   var x = e.clientX;
   var y = e.clientY;
@@ -68,7 +73,9 @@ let score = -5;
 
 function calScore() {
   score = score + 5;
+  setScoreFromLS(score);
   updateScore.innerText = "score : " + score;
+
   // console.log("score");
 }
 
@@ -80,31 +87,43 @@ function game() {
   }
   
 }
+let claScoreInteval
+let randomImgInteval
+let gameInteval
+let imgPosInteval
 
 function startGame() {
-  setInterval(calScore, 2000);
+  claScoreInteval = setInterval(calScore, 2000);
 
-  setInterval(game, 300);
+  gameInteval = setInterval(game, 300);
 
-  setInterval(randomImage, 2000);
+  randomImgInteval = setInterval(randomImage, 2000);
 
-  setInterval(getImagePosition, 2000);
+  imgPosInteval = setInterval(getImagePosition, 2000);
 }
-   startGame();
 
-
+function clearGame(){
+  console.log("in clear")
+  clearInterval(gameInteval)
+  clearInterval(claScoreInteval)
+  clearInterval(randomImgInteval)
+  clearInterval(imgPosInteval)
+}
 function playAgain() {
   window.location.href = "/index.html";
 }
 
 
-function gameOver(){
+function gameOver(isOver){
+  clearGame()
   console.log("score==",score);
   window.location.href="/index3.html";
-  let finalscore=document.getElementsByClassName("sc");
-  finalscore.innerHTML=`score : ${score}`;
-  
-  
-
-
+   
 }
+
+function showScore(){
+  let finalScoreValue = getScoreFromLS()
+  let finalscore=document.querySelector(".sc");
+  finalscore.innerHTML=`score : ${finalScoreValue}`;
+}
+
