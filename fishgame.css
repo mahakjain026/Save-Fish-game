@@ -11,7 +11,7 @@ body{
     background: url("https://i.pinimg.com/originals/4a/6d/59/4a6d59a24e9f463e48c618b166c19f6b.png");
     background-repeat: no-repeat; 
     background-size: cover; 
-    opacity:0.7 ;
+    
     min-height: 100vh;
     align-items: center;
     justify-content: center;
@@ -21,17 +21,12 @@ body{
     /* background: #000; */
     /* background: linear-gradient(to top , #040529 , #59C6D4); */
 }
-/* .fish-anim{
-  background: url("/fishanim2.png"); 
-  height: 420px;
-  width: 260px;
-  position: relative;
-  animation-name: fishanim;
-  animation-duration: 4s;
-} */
-/* @keyframes fishanim {
-  0%   {background-color:rgb(8, 0, 255); left:0px; top:0px;}
-} */
+#score{
+  position: absolute;
+  right: 5%;
+  font-size: 220%;
+}
+
 .button {
   margin-top: 470px;
 align-items: center;
@@ -54,11 +49,11 @@ padding-left: 16px;
 padding-right: 16px;
 position: relative;
 text-align: left;
-text-decoration: none;
+
 transition: box-shadow .15s,transform .15s;
 user-select: none;
 -webkit-user-select: none;
-touch-action: manipulation;
+/* touch-action: manipulation; */
 white-space: nowrap;
 will-change: box-shadow,transform;
 font-size: 18px;
@@ -73,10 +68,10 @@ box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px
 transform: translateY(-2px);
 }
 
-.start:active {
+/* .start:active {
 box-shadow: #3c4fe0 0 3px 7px inset;
 transform: translateY(2px);
-}
+} */
 
 .hide{
     display: none;
