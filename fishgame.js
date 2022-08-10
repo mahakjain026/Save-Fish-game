@@ -7,10 +7,23 @@ let timer;
 
 document.addEventListener("mousemove", movement);
 function getScoreFromLS(){
-  return localStorage.getItem('scoreObj')
+  
+  return JSON.parse(localStorage.getItem('scoreObj'));
+
 }
+
 function setScoreFromLS(scorePara){
-  localStorage.setItem('scoreObj', scorePara)
+  console.log("--------in the set")
+  let currentScore = getScoreFromLS();
+  if(!currentScore){
+    currentScore = {
+      "highscore" : 0,
+      "score" : 0
+    };
+  }
+  currentScore["highscore"] = currentScore["highscore"]<scorePara ? scorePara : currentScore["highscore"];
+  currentScore["score"] = scorePara;
+  localStorage.setItem('scoreObj', JSON.stringify(currentScore));
 }
 function movement(e) {
   var x = e.clientX;
@@ -123,9 +136,15 @@ function gameOver(isOver){
 
 function showScore(){
   let finalScoreValue = getScoreFromLS()
+  let gameOverScore = finalScoreValue["score"];
+  let gameOverHighScore = finalScoreValue["highscore"]
+  let finalHighScore=document.querySelector(".hs");
+  finalHighScore.innerHTML=`highscore : ${gameOverHighScore}`;
+  
   let finalscore=document.querySelector(".sc");
-  finalscore.innerHTML=`score : ${finalScoreValue}`;
+  finalscore.innerHTML=`Score : ${gameOverScore}`;
 }
+
  function changespeed()
   {
  if(a<score && score<a+40 && t> 0.5)
