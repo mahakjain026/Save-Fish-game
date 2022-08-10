@@ -126,4 +126,19 @@ function showScore(){
   let finalscore=document.querySelector(".sc");
   finalscore.innerHTML=`score : ${finalScoreValue}`;
 }
+ function changespeed()
+  {
+ if(a<score && score<a+40 && t> 0.5)
+ 
+{
+a=a+40;
+t=t-0.2;
+t2=t2-200;
+console.log("a----",a);
+ console.log("t------",t);
+ document.getElementById("particle").style.animationDuration = `${t}s`;
+}
+//  $('#particle').css("animation-duration", "5s");
+
+}
 
